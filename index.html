@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./introduce.styles.css">
+    <title>Introduce</title>
+</head>
+<body> 
+    <div class="screen">
+       <!-- <div class="pictures part1">
+            <img src="dog.png" id="pic">
+        </div> -->
+        <div class="introduce">
+            <h1>What is your name?</h1>
+            <input type="text" />
+            <button class="btn btn-secondary">Introduce</button>
+         </div>
+    </div>
+</body>
+
+<script>
+  
+//     let pictures = document.getElementsByClassName("pictures");
+//     var ball = document.getElementById('pic');
+
+//     ball.onmousedown = function(event) {
+
+// let shiftX = event.clientX - ball.getBoundingClientRect().left;
+// let shiftY = event.clientY - ball.getBoundingClientRect().top;
+// ball.style.position = 'absolute';
+// ball.style.zIndex = 1000;
+// document.body.append(ball);
+// moveAt(event.pageX, event.pageY);
+
+// function moveAt(pageX, pageY) {
+//   ball.style.left = pageX - shiftX + 'px';
+//   ball.style.top = pageY - shiftY + 'px';
+// }
+// function onMouseMove(event) {
+//   moveAt(event.pageX, event.pageY);
+// }
+// document.addEventListener('mousemove', onMouseMove);
+// ball.onmouseup = function() {
+//   document.removeEventListener('mousemove', onMouseMove);
+//   ball.onmouseup = null;
+// };
+// };
+// ball.ondragstart = function() {
+// return false;
+// };
+
+//     let main = document.getElementById("screen");
+//     // Anime();
+//     for (let i = 0; i < 1; i++) {
+//     moving(i);
+//     };
+//     function Anime(){
+//   pic.item(0).animate([
+//             {transform: 'translate(0)'},
+//             {transform: 'translate(-20px, 0px)'},
+//             {transform: 'translate(0px, 10px)'},
+//             {transform: 'translate(20px, 0px)'},
+//             {transform: 'translate(0px, -10px)'},
+//         ], 1500);
+//       }
+//     function moving(i) {
+//     pic.item(i).ondragstart = function () {
+//         return false;
+//     };
+//     pic.item(i).onmousedown = function (e) {
+//         console.log('kfm')
+//         let coords = Coorg(i);
+//         console.log('k')
+//         let shiftX = e.clientX - coords.left;
+//         let shiftY = e.clientY - coords.top;
+//         pictures.item(i).style.zIndex = 100;
+//         document.onmousemove = function (e) {
+//             mouseCoor(e);
+//         };
+//         pic.item(i).onmouseup = function () {
+          
+//             document.onmousemove = null;
+//         };
+
+//         function mouseCoor(e) {
+        
+//             let newLeft = e.clientX  -main.offsetLeft - shiftX;
+//             let newTop = e.clientY  -main.offsetTop- shiftY;
+
+//             pictures.item(i).style.left = newLeft + 'px';
+//             pictures.item(i).style.top = newTop + 'px';
+//         //     let container = container1[0].getBoundingClientRect();
+//         //   let l=container.left;
+//         //   let r=container.right;
+//         //   let t=container.top;
+//         //   let b=container.bottom;
+//         //     if (newLeft >= l && newLeft+100 <= r && newTop >= t && newTop+50 <= b) {
+//         //       pictures.item(i).style.left = newLeft + 'px';
+//         //       pictures.item(i).style.top = newTop + 'px';
+//         // //     }
+//           }
+//     }
+
+//     function Coorg(i) {
+//         let el = pictures.item(i).getBoundingClientRect();
+//         return {
+//             top: el.top,
+//             left: el.left
+//         };
+//     }
+// }
+    const button = document.querySelector('button')
+    if (button) {
+        button.addEventListener('click', () => {saveUser()})
+    }
+
+    const input = document.querySelector('input')
+
+    function saveUser() {
+        console.log('saveUser called.')
+        const value = input.value
+
+        if (!value.length) {
+            return
+        }
+        
+        localStorage.setItem("userName", value)
+        localStorage.setItem("result", 0)
+
+        /* Rating logic */
+        let users
+        const usersStr = localStorage.getItem("users")
+        if (!usersStr) {
+            users = {}
+        } else {
+            users = JSON.parse(usersStr)
+        }
+        const dateISOString = new Date().toISOString()
+        users[dateISOString] = {userName: value, result: 0}
+
+        localStorage.setItem("currentUser", dateISOString)
+        localStorage.setItem("users", JSON.stringify(users))
+
+        window.location.href = './menu.html'
+
+    }
+
+    function keyDownHandler(e) {
+        if (e.code == "Enter") {
+            saveUser()
+        }
+    }
+
+
+    window.addEventListener('keydown', keyDownHandler)
+</script>
+</html>
