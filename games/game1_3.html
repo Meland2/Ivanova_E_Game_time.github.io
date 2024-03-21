@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 1</title>
+
+    <script src="https://kit.fontawesome.com/875cec1d0b.js" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="game1.styles.css">
+    <script src="game1.js" defer></script>
+
+</head>
+<body>
+    <div class="screen1">
+        <div class="header">
+            <input class="btn btn-primary" type="button" onclick="location.href='../menu.html'" value="Back" /> 
+            <span>Правила: перетащите мышку в указанный квадрат, пока не закончится время.</span>
+        </div>
+        <div  class="timewatch">
+            <p id="timer">00:00:01</p>
+        </div>
+        <h1 id="counter">0</h1>
+        <div class="flexb">
+        
+            <div class="out3" >
+                <svg width="100" height="100">
+                    <rect id="out" width="100" height="100" margin="100" style="fill:rgb(125, 125, 157);" />
+                 </svg>
+            </div>
+            <button id="clicker" class="btn joystick3">
+                <i class="fa-solid fa-4x fa-computer-mouse text-warning"></i>
+            </button>
+           </div>
+       </div>
+    </div>
+</body>
+<script>
+localStorage.setItem("gameTime", 1000)
+localStorage.setItem("redirect", '../menu.html')
+</script>
+</html>

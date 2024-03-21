@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory game</title>
+
+    <script src="https://kit.fontawesome.com/875cec1d0b.js" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="game3.styles.css">
+
+    <script src="game3.js" defer></script>
+
+</head>
+<body>
+    <div class="screen">
+        <div class="header">
+            <input class="btn btn-primary" type="button" onclick="location.href='../menu.html'" value="Back" /> 
+            <span>Правила: Успейте найти одинаковые пары картинок. Время ограничено!</span>
+        </div>
+        <div  class="timewatch">
+            <p id="timer">00:00:01</p>
+        </div>
+        <div  class="matrix">
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+
+            <div  class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+
+            <div class="item"> 
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item">
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+            <div class="item"> 
+                <button class="btn memory-btn"><i></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>    
+    localStorage.setItem("gameTime", 6000)
+    localStorage.setItem("redirect", '../menu.html')
+</script>
+</html>
